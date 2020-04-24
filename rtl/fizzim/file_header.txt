@@ -1,0 +1,13 @@
+/*
+ ******************************************************************************
+ * @file  	:
+ * @project :
+ * @brief   :
+ * @creator : S. R. Zinka
+ ******************************************************************************
+ * This program is hereby granted to the public domain.
+ * This program is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTIBILITY or
+ * FITNESS FOR A PARTICULAR PURPOSE.
+ ******************************************************************************
+ */

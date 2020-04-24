@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+# Files and Folders
+/TODOs
+/verilog.sublime-workspace
+/bench/cpp/lib/
+/bench/cpp/build/

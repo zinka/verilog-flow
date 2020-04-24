@@ -1,0 +1,38 @@
+{
+	"build_systems":
+	[
+		{
+			"file_regex": "/([^/:]+):(\\d+):(\\d+): ",
+			"name": "verilog build",
+			"shell_cmd": "make -C ${project_path}/rtl && if [ ! -d ${project_path}/bench/cpp/build ]; then mkdir ${project_path}/bench/cpp/build; fi && cd ${project_path}/bench/cpp/build && cmake .. && make -j4 && ./output",
+			"variants":
+			[
+				{
+					"name": "clean",
+					"shell_cmd": "rm -rf ${project_path}/bench/cpp/build && mkdir ${project_path}/bench/cpp/build && rm -rf ${project_path}/bench/cpp/lib/*"
+				}
+			]
+		},
+		// {
+		// 	"name": "verilator build",
+		// 	"shell_cmd": "make -C ${project_path}/rtl",
+		// 	"variants":
+		// 	[
+		// 		{
+		// 			"name": "clean",
+		// 			"shell_cmd": "rm -rf ${project_path}/bench/cpp/lib/*"
+		// 		}
+		// 	]
+		// },
+		{
+			"name": "fizzim build",
+			"shell_cmd": "cd ${project_path}/rtl/fizzim/ && sh ${project_path}/rtl/fizzim/fizzim.sh",
+		}		
+	],
+	"folders":
+	[
+		{
+			"path": "."
+		}
+	]
+}
