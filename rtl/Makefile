@@ -1,12 +1,12 @@
 .PHONY: all
 .DELETE_ON_ERROR:
 
-TOPMOD  := thruwire
+# TOPMOD  := thruwire
 # TOPMOD  := maskbus
 # TOPMOD  := blinky
 # TOPMOD  := ppsii
 # TOPMOD  := ppsi
-# TOPMOD  := ledwalker
+TOPMOD  := ledwalker
 # TOPMOD  := reqwalker
 # TOPMOD  := helloworld
 

@@ -41,12 +41,12 @@ file(GLOB SOURCES
 # "/usr/share/verilator/include/verilated_vpi.cpp"
 )
 
-# list(FILTER SOURCES EXCLUDE REGEX "main_thruwire.cpp")
+list(FILTER SOURCES EXCLUDE REGEX "main_thruwire.cpp")
 list(FILTER SOURCES EXCLUDE REGEX "main_maskbus.cpp")
 list(FILTER SOURCES EXCLUDE REGEX "main_blinky.cpp")
 list(FILTER SOURCES EXCLUDE REGEX "main_ppsi.cpp")
 list(FILTER SOURCES EXCLUDE REGEX "main_ppsii.cpp")
-list(FILTER SOURCES EXCLUDE REGEX "main_ledwalker.cpp")
+# list(FILTER SOURCES EXCLUDE REGEX "main_ledwalker.cpp")
 list(FILTER SOURCES EXCLUDE REGEX "main_reqwalker.cpp")
 list(FILTER SOURCES EXCLUDE REGEX "main_helloworld.cpp")
 

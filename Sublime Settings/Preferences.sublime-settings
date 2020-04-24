@@ -1,0 +1,15 @@
+{
+	"color_scheme": "Packages/Guna/themes/Guna.tmTheme",
+	"enable_tab_scrolling": false,
+	"font_size": 9,
+	"gn_overlay_scroll_bars": true,
+	"gn_sb_cnvx": true,
+	"gnwidgx": true,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"preview_on_click": false,
+	"scroll_speed": 100,
+	"theme": "Guna.sublime-theme"
+}

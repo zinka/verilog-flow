@@ -1,0 +1,29 @@
+{
+	"bootstrapped": true,
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"A File Icon",
+		"Alignment",
+		"AutoFileName",
+		"Clang Format",
+		"CMakeEditor",
+		"DocBlockr",
+		"Git",
+		"Guna",
+		"Open in Default Application",
+		"Origami",
+		"Package Control",
+		"Status Bar Time",
+		"SublimeLinter",
+		"SublimeLinter-contrib-verilator",
+		"SublimeLinter-gcc",
+		"SublimeLinter-pylint",
+		"SystemVerilog",
+		"Terminus",
+		"TodoReview",
+		"Verilog Gadget"
+	]
+}

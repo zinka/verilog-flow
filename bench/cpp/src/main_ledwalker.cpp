@@ -31,52 +31,60 @@
 #include "verilated.h"
 #include "verilated_vcd_c.h"
 
-void	tick(int tickcount, Vledwalker *tb, VerilatedVcdC* tfp) {
-	tb->eval();
-	if (tfp)
-		tfp->dump(tickcount * 10 - 2);
-	tb->i_clk = 1;
-	tb->eval();
-	if (tfp)
-		tfp->dump(tickcount * 10);
-	tb->i_clk = 0;
-	tb->eval();
-	if (tfp) {
-		tfp->dump(tickcount * 10 + 5);
-		tfp->flush();
-	}
+void tick(int tickcount, Vledwalker *tb, VerilatedVcdC *tfp) {
+  tb->eval();
+  if (tfp) tfp->dump(tickcount * 10 - 2);
+  tb->i_clk = 1;
+  tb->eval();
+  if (tfp) tfp->dump(tickcount * 10);
+  tb->i_clk = 0;
+  tb->eval();
+  if (tfp) {
+    tfp->dump(tickcount * 10 + 5);
+    tfp->flush();
+  }
 }
 
 int main(int argc, char **argv) {
-	int	last_led;
-	unsigned tickcount = 0;
+	
+  // char file_name[] = "trace.vcd";
+  // char gtkw[] = "/usr/bin/gtkwave ";
+  // strcat(gtkw, file_name);
 
-	// Call commandArgs first!
-	Verilated::commandArgs(argc, argv);
+  int last_led;
+  unsigned tickcount = 0;
 
-	// Instantiate our design
-	Vledwalker *tb = new Vledwalker;
+  // Call commandArgs first!
+  Verilated::commandArgs(argc, argv);
 
-	// Generate a trace
-	Verilated::traceEverOn(true);
-	VerilatedVcdC* tfp = new VerilatedVcdC;
-	tb->trace(tfp, 99);
-	tfp->open("ledwalker.vcd");
+  // Instantiate our design
+  Vledwalker *tb = new Vledwalker;
 
-	last_led = tb->o_led;
-	for(int k=0; k<(1<<10); k++) {
-		tick(++tickcount, tb, tfp);
+  // Generate a trace
+  Verilated::traceEverOn(true);
+  VerilatedVcdC *tfp = new VerilatedVcdC;
+  tb->trace(tfp, 99);
+  tfp->open("ledwalker.vcd");
 
-		// Now let's print our results
-		if (last_led != tb->o_led) {
-			printf("k = %7d, ", k);
-			printf("led = %02x:", tb->o_led);
-			for(int j=0; j<8; j++) {
-				if(tb->o_led & (1<<j))
-					printf("O");
-				else
-					printf("-");
-			} printf("\n");
-		} last_led = tb->o_led;
-	}
+  last_led = tb->o_led;
+  for (int k = 0; k < (1 << 10); k++) {
+    tick(++tickcount, tb, tfp);
+
+    // Now let's print our results
+    if (last_led != tb->o_led) {
+      printf("k = %7d, ", k);
+      printf("led = %02x:", tb->o_led);
+      for (int j = 0; j < 8; j++) {
+        if (tb->o_led & (1 << j))
+          printf("O");
+        else
+          printf("-");
+      }
+      printf("\n");
+    }
+    last_led = tb->o_led;
+  }
+
+  // tb->closetrace();
+  // system(gtkw);
 }

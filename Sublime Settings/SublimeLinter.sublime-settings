@@ -1,0 +1,98 @@
+{
+    "no_column_highlights_line": true,
+    "debug": false,
+    
+    "linters": {
+        "verilator": {
+            "message_near_map": [
+                [
+                    "Case values",
+                    "case"
+                ],
+                [
+                    "Suggest casez",
+                    "casex"
+                ]
+            ],
+            "filter_errors": [
+                "Unsupported:",
+                "\\[IGNDEF\\]"
+            ],
+            "styles": [
+                {
+                    "icon": "Packages/SublimeLinter/gutter-themes/Default/cog.png",
+                    "types": [
+                        "warning"
+                    ],
+                    "mark_style": "squiggly_underline"
+                },
+                {
+                    "icon": "Packages/SublimeLinter/gutter-themes/Default/cog.png",
+                    "types": [
+                        "error"
+                    ],
+                    "mark_style": "fill"
+                }
+            ],
+            "extension": [
+                ".v"
+            ],
+            "args": [
+                "--error-limit",
+                "500",
+                "--default-language",
+                "1364-2005",
+                "--bbox-sys",
+                "--bbox-unsup",
+                "-Wall",
+                "-Wno-DECLFILENAME",
+                "-Wno-WIDTH",
+                "-Wno-UNDRIVEN"
+            ],
+            // "lint_mode": "load_save"
+        },
+        "g++": {
+            "disable": false,
+            "executable": [
+                "g++"
+            ],
+            "I": [
+                "${project_path}/bench/cpp/lib", 
+                "${project_path}/bench/cpp/src",             
+                "/usr/local/include",
+                "/usr/share/verilator/include",
+                "/usr/share/verilator/include/vltstd"
+            ],
+            "excludes": [],
+            "args": [
+                // "-fsyntax-only",
+                "-Wall",
+                "-std=c++17"
+            ]
+        },
+        "gcc": {
+            "disable": false,
+            "executable": [
+                "gcc"
+            ],
+            "I": [
+                "${file_path}/include",
+                "${folder}/include",
+                "/usr/local/include"
+            ],
+            "excludes": [],
+            "args": [
+                "-fsyntax-only",
+                "-std=c90"
+            ]
+        },
+
+        "pylint": {
+            "disable": false,
+            "executable": [
+                "pylint"
+            ],
+        }
+
+    }
+}
